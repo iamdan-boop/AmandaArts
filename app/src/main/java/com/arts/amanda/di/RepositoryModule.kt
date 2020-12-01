@@ -4,16 +4,15 @@ import com.arts.amanda.service.FirebaseService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
-import javax.inject.Singleton
+import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.scopes.ActivityScoped
 
-@InstallIn(ApplicationComponent::class)
+@InstallIn(ActivityComponent::class)
 @Module
 object RepositoryModule {
 
     @Provides
-    @Singleton
+    @ActivityScoped
     fun provideFirebaseService() = FirebaseService()
-
 
 }

@@ -17,7 +17,6 @@ import com.arts.amanda.utils.snack
 import com.github.dhaval2404.imagepicker.ImagePicker
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 import java.io.File
 
 
@@ -60,7 +59,7 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
     }
 
     private fun loginObserver() {
-        lifecycleScope.launch {
+        lifecycleScope.launchWhenStarted {
             uploadViewModel.stateUploadState.collect {
                 when (it) {
 

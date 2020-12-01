@@ -37,7 +37,7 @@ constructor(
         }
     }
 
-    fun uploadArts(arts: Arts) = viewModelScope.launch(Dispatchers.Main) {
+    fun uploadArts(arts: Arts) = viewModelScope.launch {
         if (arts.title.isNullOrEmpty() || arts.collection.isNullOrEmpty() ||
             arts.date.isNullOrEmpty() || arts.description.isNullOrEmpty() || arts.image.isNullOrEmpty()
         ) {
