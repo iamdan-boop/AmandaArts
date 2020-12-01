@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">AmandaArts</string>
+    <string name="feed">Feed</string>
+    <string name="upload">Upload</string>
+    <string name="profile">Profile</string>
+    <string name="fb_link">https://www.facebook.com/amandamay.bruto</string>
+    <string name="edit">Edit</string>
+    <string name="owner">Amanda May Bruto</string>
+    <string name="stats">Current Arts Made: </string>
+    <string name="description">Description:</string>
+    <string name="title">Title: </string>
+    <string name="date">Date: </string>
+    <string name="collection">Collection: </string>
+    <string name="up_art">Upload Art</string>
+    <string name="ok">OK</string>
+    <string name="image_import">Image Successfully Imported</string>
 </resources>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "566673826281",
+    "firebase_url": "https://amandasarts-bcb39.firebaseio.com",
+    "project_id": "amandasarts-bcb39",
+    "storage_bucket": "amandasarts-bcb39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566673826281:android:e62aefcaa971b22ad4ab78",
+        "android_client_info": {
+          "package_name": "com.arts.amanda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566673826281-2abrknee9ts54gtntdo6kmq79eiqppap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arts.amanda",
+            "certificate_hash": "43a667e7881ce4a95325c9c7f5edba1b73f4e54a"
+          }
+        },
+        {
+          "client_id": "566673826281-u0bbppku7rpg3pvdvdphqt79b1787mrp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKJ5nR1uH2LfAXq8XnY1yn8VsMdEDiqPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566673826281-u0bbppku7rpg3pvdvdphqt79b1787mrp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
