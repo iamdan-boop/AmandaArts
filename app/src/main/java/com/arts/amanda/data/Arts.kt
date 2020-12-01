@@ -1,4 +1,4 @@
-package com.arts.data
+package com.arts.amanda.data
 
 class Arts(
     val image: String? = null,

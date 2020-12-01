@@ -4,8 +4,8 @@ import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.arts.amanda.service.FirebaseService
-import com.arts.data.Arts
-import com.arts.data.DataState
+import com.arts.amanda.data.Arts
+import com.arts.amanda.data.DataState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -24,7 +24,7 @@ constructor(
         get() = _dataState
 
     fun setViewState(artsStateEvent: ArtsStateEvent) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             when (artsStateEvent) {
 
                 is ArtsStateEvent.GetArtsEvent -> {

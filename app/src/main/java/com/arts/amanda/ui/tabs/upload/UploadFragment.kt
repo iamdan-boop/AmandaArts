@@ -4,14 +4,15 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.arts.amanda.R
 import com.arts.amanda.databinding.FragmentUploadBinding
 import com.arts.amanda.utils.snack
-import com.arts.data.Arts
-import com.arts.data.DataState
+import com.arts.amanda.data.Arts
+import com.arts.amanda.data.DataState
 import com.github.dhaval2404.imagepicker.ImagePicker
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,6 +29,7 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
         fragmentUploadBinding = FragmentUploadBinding.bind(view)
         registerObserver()
 
+        // FIRE EVENT FOR FETCHING DATA FROM FIRESTORE BITCHES
         viewModel.setViewState(ArtsStateEvent.GetArtsEvent)
 
         _fragmentUploadBinding.uploadImage.setOnClickListener {
@@ -40,11 +42,12 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
     }
 
     private fun registerObserver() {
-        viewModel.dataState.observe(viewLifecycleOwner, Observer { dataState ->
+        viewModel.dataState.observe(viewLifecycleOwner) { dataState ->
             when (dataState) {
                 is DataState.Success<List<Arts>> -> {
-                    println(dataState.data.toString())
-                    println("DATA RECEIVE")
+                    for (data in dataState.data) {
+                        println("Collection: ${data.collection}\n  Date: ${data.date}\n  Description: ${data.description}\n  Title:${data.title}\n  Image: ${data.image}")
+                    }
                 }
 
                 is DataState.Error -> {
@@ -55,7 +58,7 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
                     println("DATA IS LOADING")
                 }
             }
-        })
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

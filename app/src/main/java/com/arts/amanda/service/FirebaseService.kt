@@ -1,8 +1,8 @@
 package com.arts.amanda.service
 
 import com.arts.amanda.utils.Constants.ARTS_COLLECTION
-import com.arts.data.Arts
-import com.arts.data.DataState
+import com.arts.amanda.data.Arts
+import com.arts.amanda.data.DataState
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.flow.*
@@ -20,9 +20,7 @@ class FirebaseService {
         emit(DataState.Loading)
         try {
             val data = artsCollection.get().await().toObjects(Arts::class.java)
-            for (datas in data) {
-                emit(DataState.Success<List<Arts>>(datas.description.toString()))
-            }
+            emit(DataState.Success(data))
         } catch (exception: IOException) {
             emit(DataState.Error(exception))
         }
