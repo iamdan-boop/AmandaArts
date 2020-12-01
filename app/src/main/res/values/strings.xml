@@ -12,6 +12,5 @@
     <string name="date">Date: </string>
     <string name="collection">Collection: </string>
     <string name="up_art">Upload Art</string>
-    <string name="ok">OK</string>
     <string name="image_import">Image Successfully Imported</string>
 </resources>

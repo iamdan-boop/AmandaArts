@@ -1,4 +1,4 @@
-package com.arts.amanda.ui.tabs
+package com.arts.amanda.ui.tabs.feed
 
 import android.os.Bundle
 import android.view.LayoutInflater

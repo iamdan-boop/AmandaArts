@@ -6,14 +6,18 @@
     app:startDestination="@id/feedFragment">
     <fragment
         android:id="@+id/feedFragment"
-        android:name="com.arts.amanda.ui.tabs.FeedFragment"
+        android:name="com.arts.amanda.ui.tabs.feed.FeedFragment"
         android:label="@string/feed"
         tools:layout="@layout/fragment_feed" />
     <fragment
         android:id="@+id/uploadFragment"
         android:name="com.arts.amanda.ui.tabs.upload.UploadFragment"
         android:label="@string/upload"
-        tools:layout="@layout/fragment_upload" />
+        tools:layout="@layout/fragment_upload" >
+        <action
+            android:id="@+id/action_uploadFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.arts.amanda.ui.tabs.ProfileFragment"
