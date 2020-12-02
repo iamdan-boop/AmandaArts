@@ -3,7 +3,6 @@ package com.arts.amanda.service
 import android.net.Uri
 import androidx.core.net.toFile
 import com.arts.amanda.data.Arts
-import com.arts.amanda.data.DataState
 import com.arts.amanda.utils.Constants.ARTS_COLLECTION
 import com.arts.amanda.utils.Constants.ARTS_COLLECTION_CHILD
 import com.google.firebase.FirebaseException
