@@ -8,6 +8,7 @@ import com.arts.amanda.utils.Constants.ARTS_COLLECTION
 import com.arts.amanda.utils.Constants.ARTS_COLLECTION_CHILD
 import com.google.firebase.FirebaseException
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.Query
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.flow.Flow
@@ -52,6 +53,14 @@ class FirebaseService {
             artsCollection.document(arts.title!!).set(arts).await()
         } catch (exception: Exception) {
             println("INSERT EXCEPTION: ${exception.localizedMessage}")
+        }
+    }
+
+    suspend fun deleteArt(title: String) {
+        try {
+            artsCollection.document(title).delete().await()
+        } catch (exception: FirebaseFirestoreException) {
+
         }
     }
 }

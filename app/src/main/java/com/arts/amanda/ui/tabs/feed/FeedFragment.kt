@@ -11,6 +11,7 @@ import com.arts.amanda.data.Arts
 import com.arts.amanda.databinding.ActivityFeedHolderBinding
 import com.arts.amanda.databinding.FragmentFeedBinding
 import com.arts.amanda.service.FirebaseService
+import com.arts.amanda.utils.snack
 import com.firebase.ui.firestore.paging.FirestorePagingAdapter
 import com.firebase.ui.firestore.paging.FirestorePagingOptions
 import com.firebase.ui.firestore.paging.LoadingState
@@ -60,6 +61,12 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
 
             override fun onBindViewHolder(holder: FeedHolder, position: Int, model: Arts) {
                 holder.bind(model)
+                holder.itemView.setOnLongClickListener {
+                    feedViewModel.deleteArt(model.title!!)
+                    adapter.refresh()
+                    snack("Data Has Been Deleted")
+                    return@setOnLongClickListener true
+                }
             }
 
             override fun onError(e: Exception) {

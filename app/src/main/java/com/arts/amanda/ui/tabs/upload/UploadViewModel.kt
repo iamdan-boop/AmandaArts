@@ -38,8 +38,8 @@ constructor(
     }
 
     fun uploadArts(arts: Arts) = viewModelScope.launch {
-        if (arts.title.isNullOrEmpty() || arts.collection.isNullOrEmpty() ||
-            arts.date.isNullOrEmpty() || arts.description.isNullOrEmpty() || arts.image.isNullOrEmpty()
+        if (arts.title.isNullOrEmpty() || arts.date.isNullOrEmpty() ||
+            arts.description.isNullOrEmpty() || arts.image.isNullOrEmpty()
         ) {
             _dataStateUpload.value = UploadState.Error("Fields cannot be empty!")
         } else {

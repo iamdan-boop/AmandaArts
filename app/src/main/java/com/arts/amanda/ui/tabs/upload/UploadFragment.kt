@@ -1,11 +1,15 @@
 package com.arts.amanda.ui.tabs.upload
 
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -18,6 +22,7 @@ import com.github.dhaval2404.imagepicker.ImagePicker
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import java.io.File
+import java.util.*
 
 
 @AndroidEntryPoint
@@ -28,9 +33,11 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
     private val uploadViewModel: UploadViewModel by viewModels()
     private var imageUrl: String? = null
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fragmentUploadBinding = FragmentUploadBinding.bind(view)
+        _fragmentUploadBinding.date.inputType = InputType.TYPE_NULL
         registerObserver()
         loginObserver()
 
@@ -52,9 +59,30 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
                 title = _fragmentUploadBinding.title.text.toString(),
                 description = _fragmentUploadBinding.description.text.toString(),
                 date = _fragmentUploadBinding.date.text.toString(),
-                collection = _fragmentUploadBinding.collection.text.toString()
             )
             uploadViewModel.uploadArts(arts)
+        }
+
+        _fragmentUploadBinding.date.setOnClickListener {
+            showDatePicker()
+        }
+    }
+
+    private fun showDatePicker() {
+        val cal = Calendar.getInstance()
+        val year = cal.get(Calendar.YEAR)
+        val month = cal.get(Calendar.MONTH)
+        val day = cal.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog =
+            DatePickerDialog(this.requireContext(), { _, years, months, dayOfMonth ->
+                val date = "$dayOfMonth/$months/$years"
+                _fragmentUploadBinding.date.setText(date)
+            }, year, month, day)
+        datePickerDialog.show()
+
+        datePickerDialog.setOnDismissListener {
+            it.dismiss()
         }
     }
 
@@ -98,7 +126,6 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
         super.onActivityResult(requestCode, resultCode, data)
         when (resultCode) {
             Activity.RESULT_OK -> {
-                val fileUri = data?.data
                 val filePath = ImagePicker.getFilePath(data)!!
                 val finalFile = Uri.fromFile(File(filePath))
                 _fragmentUploadBinding.uploadImage.setImageURI(finalFile)

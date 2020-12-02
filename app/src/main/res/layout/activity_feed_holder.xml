@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="26sp"
-            app:layout_constraintBottom_toTopOf="@id/holder_collection"
+            app:layout_constraintBottom_toTopOf="@id/date_holder"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -26,7 +26,7 @@
 
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/holder_collection"
+            android:id="@+id/date_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center|start"
@@ -48,7 +48,7 @@
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/holder_collection"
+            app:layout_constraintTop_toBottomOf="@id/date_holder"
             tools:src="@drawable/arts" />
 
 

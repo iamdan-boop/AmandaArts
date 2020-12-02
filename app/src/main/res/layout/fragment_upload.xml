@@ -18,8 +18,8 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/upload_image"
         android:layout_width="match_parent"
+        android:src="@drawable/placeholder"
         android:layout_height="300dp"
-        android:src="@drawable/arts"
         android:scaleType="fitXY"
         android:padding="0dp"
         app:shapeAppearanceOverlay="@style/ImageShapeTheme"
@@ -33,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        app:boxBackgroundColor="#FAFAFA"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,6 +54,7 @@
          android:layout_width="match_parent"
          android:layout_height="150dp"
          android:layout_marginTop="10dp"
+         app:boxBackgroundColor="#FAFAFA"
          style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
@@ -67,52 +69,28 @@
 
      </com.google.android.material.textfield.TextInputLayout>
 
-     <LinearLayout
-         android:id="@+id/wrapper_date_collection"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:weightSum="2"
-         app:layout_constraintTop_toBottomOf="@id/description_wrapper"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         android:baselineAligned="false">
-
      <com.google.android.material.textfield.TextInputLayout
+         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
          android:id="@+id/date_wrapper"
          android:layout_width="0dp"
          android:layout_height="wrap_content"
          android:layout_marginTop="10dp"
          android:layout_marginEnd="5dp"
-         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense" app:layout_constraintStart_toStartOf="parent"
-         android:layout_weight="1">
+         app:boxBackgroundColor="#FAFAFA"
+         app:layout_constraintBottom_toTopOf="@id/upload_art"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/description_wrapper">
 
          <com.google.android.material.textfield.TextInputEditText
              android:id="@+id/date"
              android:layout_width="match_parent"
              android:gravity="top|start"
              android:layout_height="match_parent"
-             android:hint="@string/date"/>
+             android:hint="@string/date" />
 
      </com.google.android.material.textfield.TextInputLayout>
 
-         <com.google.android.material.textfield.TextInputLayout
-             android:id="@+id/collection_wrapper"
-             android:layout_width="0dp"
-             android:layout_marginStart="5dp"
-             android:layout_height="wrap_content"
-             android:layout_marginTop="10dp"
-             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense" app:layout_constraintStart_toStartOf="parent"
-             android:layout_weight="1">
-
-             <com.google.android.material.textfield.TextInputEditText
-                 android:id="@+id/collection"
-                 android:layout_width="match_parent"
-                 android:gravity="top|start"
-                 android:layout_height="match_parent"
-                 android:hint="@string/collection"/>
-
-         </com.google.android.material.textfield.TextInputLayout>
-     </LinearLayout>
 
      <com.google.android.material.button.MaterialButton
          android:id="@+id/upload_art"
@@ -120,7 +98,7 @@
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:text="@string/up_art"
-         app:layout_constraintTop_toBottomOf="@id/wrapper_date_collection"
+         app:layout_constraintTop_toBottomOf="@id/date_wrapper"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintStart_toStartOf="parent" />
 
